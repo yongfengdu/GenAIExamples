@@ -1,7 +1,14 @@
 # Copyright (C) 2024 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
+vllm:
+  enabled: false
+
+llm-uservice:
+  DOCSUM_BACKEND: "TGI"
+
 tgi:
+  enabled: true
   accelDevice: "gaudi"
   image:
     repository: ghcr.io/huggingface/tgi-gaudi
@@ -9,8 +16,6 @@ tgi:
   resources:
     limits:
       habana.ai/gaudi: 1
-  MAX_INPUT_LENGTH: "1024"
-  MAX_TOTAL_TOKENS: "2048"
   CUDA_GRAPHS: ""
   ENABLE_HPU_GRAPH: true
   LIMIT_HPU_GRAPH: true
